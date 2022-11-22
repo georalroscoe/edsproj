@@ -1,0 +1,176 @@
+<% layout('layouts/boilerplate') %>
+    <div class="header">
+        <h1 id="title">Edward Mason</h1>
+        <p id="description">A project so that we can monitor Ed's progress and find a path which benefits him</p>
+
+    </div>
+    <div id="scoreDescription">
+        <div id="container">
+            <h1>Score description</h1>
+            <p>For the purpose of this project we are going to classify Ed's mood
+                as going into two main directions.<br><br>
+                Sometimes his mood will be elevated, however,
+                he will be misbehaving to try and get a reaction from you. In this scenario he may
+                be breaking things or doing a runner whilst laughing. This will be defined
+                by the positive scores in the mood question box.(Get some hints and tips from leighen for this mood)
+                <br><br>
+                At other times his mood may present in the opposite manner.
+                This more classically looks like a bad mood as he becomes reserved,
+                avoids interacting and potentially angry. Some clues as to when this
+                is happening is hiding under a blanket, violence and vocabulary such as 'Go away'
+                and repeating 'No'. (Get some hints and tips from leighen for this mood)
+            </p>
+        </div>
+        <div id="container">
+            <h1>Score examples</h1>
+            <p>-5 - get leighens advice <br>
+                -5 - get leighens advice <br>
+                -5 - get leighens advice <br>
+                -5 - get leighens advice <br>
+                -5 - get leighens advice <br>
+                -5 - get leighens advice <br>
+                -5 - get leighens advice <br>
+                -5 - get leighens advice <br>
+                -5 - get leighens advice <br>
+                -5 - get leighens advice <br>
+                -5 - get leighens advice <br></p>
+        </div>
+    </div>
+    <div id="wakeUp">
+        <div id="overnight">
+            <div id="container">
+                <form id="wakeUpTime" method="post" action="/form.php">
+
+                    <fieldset>
+                        <p>What time did Ed wake up?</p>
+                        <input type="radio" id="9" name="wake" value="9:00">
+                        <label for="9">9:00</label>
+                        <input type="radio" id="9:30" name="wake" value="9:30">
+                        <label for="9:30">9:30</label>
+                        <input type="radio" id="10" name="wake" value="10:00">
+                        <label for="10:00">10:00</label>
+                        <input type="radio" id="10:30" name="wake" value="10:30">
+                        <label for="10:30">10:30</label>
+                        <input type="radio" id="11" name="wake" value="11:00">
+                        <label for="11">11:00</label>
+            </div>
+
+            <div id="container">
+
+                <p>Where there any night events?</p>
+
+                <input type="radio" id="yes" name="night" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="night" value="no">
+                <label for="no">No</label>
+                </fieldset>
+                <input id="submit" type="submit" value="submit">
+                </form>
+            </div>
+            <div id="container">
+                <p>Ear tweak time completed today</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+
+        <a href="/updates/new">9:00</a>
+        <button id="10:00" class="time">10:00</button>
+        <button id="11:00" class="time">11:00</button>
+        <button id="12:00" class="time">12:00</button>
+        <button id="13:00" class="time">13:00</button>
+        <button id="14:00" class="time">14:00</button>
+        <button id="15:00" class="time">15:00</button>
+        <button id="16:00" class="time">16:00</button>
+        <button id="17:00" class="time">17:00</button>
+        <button id="18:00" class="time">18:00</button>
+        <button id="19:00" class="time">19:00</button>
+        <button id="20:00" class="time">20:00</button>
+        <button id="21:00" class="time">21:00</button>
+        <button id="22:00" class="time">22:00</button>
+        <script src="app.js"></script>
+    </div>
+    <div id="hidden-form">
+        <form id="submission" action="/form-page" method="post" onsubmit="sendData()">
+            <fieldset>
+                <legend>9:00</legend>
+                <div id="questions">
+                    <div id="personDiv" class="selectDiv">
+                        <label for="person">Person</label>
+                        <select name="person" id="carer">
+                            `<option value="Leighen">Leighen</option>
+                            <option value="George">George</option>
+                            <option value="Hannah">Hannah</option>
+                            <option value="Ewelina">Ewelina</option>
+                            <option value="Miriam">Miriam</option>
+                        </select>
+
+                    </div>
+                    <div id="moodDiv" class="selectDiv">
+                        <label for="moodScore">Mood</label>
+                        <select name="moodScore" id="mood">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+
+                    </div>
+
+                    <div id="snackDiv" class="selectDiv">
+                        </select>
+                        <label for="snack">Snack</label>
+                        <select name="snack" id="snack">
+                            <option value="healthy">Healthy(fruit, nuts)</option>
+                            <option value="lowSugar">Low sugar(bagel, crisps)</option>
+                            <option value="highSugar">High sugar(chocolate, biscuits)</option>
+                            <option value="none">none</option>
+                        </select>
+                    </div>
+                    <div id="incidentDiv" class="selectDiv">
+                        <label for="incident">Incident</label>
+                        <select name="incident" id="incident">
+                            <option value="mild">Mild</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="severe">Severe</option>
+                            <option value="bathroom">Bathroom related</option>
+                            <option value="none">None</option>
+                        </select>
+                    </div>
+                    <div id="earDiv" class="selectDiv">
+                        <label for="earTweaks">Ear tweaks</label>
+                        <select name="earTweaks" id="earTweaks">
+                            <option value="5">5 Minutes</option>
+                            <option value="10">10 Minutes</option>
+                            <option value="15">15 Minutes</option>
+                            <option value="20">20 Minutes</option>
+                        </select>
+                    </div>
+
+                    <div id="activityDiv" class="selectDiv">
+                        <label for="activity">Dominant activity</label>
+                        <select name="activity" id="act">
+                            <option value="tv">TV</option>
+                            <option value="bed">Bed/rest/sleeping</option>
+                            <option value="inside">Inside and playful</option>
+                            <option value="outsidePlayful">Outside and playful</option>
+                            <option value="outsideReserved">Outside and reserved</option>
+                            <option value="outHouse">Out the house activity</option>
+                            <option value="meal">Meal</option>
+
+                        </select>
+                    </div>
+                    <div id="submitDiv" class="selectDiv">
+                        <input id="submit" type="submit" value="submit">
+                    </div>
+            </fieldset>
+        </form>
+    </div>
+    </div>
