@@ -3,10 +3,11 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
-const Update = require('./models/update');
-const methodOverride = require('method-override');
 
-mongoose.connect('mongodb://localhost:27017/ed');
+const methodOverride = require('method-override');
+const updateroutes = require('./routes/updateroutes')
+
+mongoose.connect('mongodb://127.0.0.1/my_database');
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -26,58 +27,7 @@ app.get('/', (req, res) => {
     res.render('./index')
 });
 
-app.get('/updates/new', async (req, res) => {
-    let q = {};
-    await db.collection('updates').findOne({ hour: 'nine' }).then(function (result) {
-        q = result;
-        if (q == null) {
-            console.log('empty')
-            res.render('updates/new')
-        }
-        else {
-            console.log('full');
-            res.redirect(`/updates/${q._id}`)
-            console.log(q._id)
-        }
-
-    }, function (err) {
-        return console.log(err);
-    });
-});
-
-app.get('/updates/show', (req, res) => {
-
-    res.render('updates/show')
-});
-
-app.post('/updates', async (req, res) => {
-    const update = new Update(req.body.update);
-    await update.save();
-    res.redirect(`/updates/${update._id}`)
-});
-
-app.get('/updates/:id', async (req, res) => {
-    const update = await Update.findById(req.params.id);
-    res.render('updates/show', { update });
-});
-
-app.get('/updates/:id/edit', async (req, res) => {
-    const update = await Update.findById(req.params.id);
-    res.render('updates/edit', { update })
-});
-
-app.put('/updates/:id', async (req, res) => {
-    const { id } = req.params;
-    const update = await Update.findByIdAndUpdate(id, { ...req.body.update });
-    res.redirect(`/updates/${update._id}`)
-});
-
-
-app.delete('/updates/:id', async (req, res) => {
-    const { id } = req.params;
-    await Update.findByIdAndDelete(id);
-    res.redirect('/')
-});
+app.use(updateroutes);
 
 app.listen(3000, () => {
     console.log('Listening on port 3000')
