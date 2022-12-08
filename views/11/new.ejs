@@ -1,0 +1,84 @@
+<% layout('layouts/boilerplate') %>
+    <h1 class="formTitle">11am form</h1>
+    <form action="/11" method="POST">
+        <fieldset id="field">
+
+
+            <div class="formDiv">
+                <label for="person">Person</label>
+                <select name="update[person]" id="person">
+                    `<option value="Leighen">Leighen</option>
+                    <option value="George">George</option>
+                    <option value="Hannah">Hannah</option>
+                    <option value="Ewelina">Ewelina</option>
+                    <option value="Miriam">Miriam</option>
+                </select>
+
+            </div>
+            <div class="formDiv">
+                <label for="mood">Mood</label>
+                <select name="update[mood]" id="mood">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+            </div>
+
+            <div class="formDiv">
+                </select>
+                <label for="snack">Snack</label>
+                <select name="update[snack]" id="snack">
+                    <option value="healthy">Healthy(fruit, nuts)</option>
+                    <option value="lowSugar">Low sugar(bagel, crisps)</option>
+                    <option value="highSugar">High sugar(chocolate, biscuits)</option>
+                    <option value="none">none</option>
+                </select>
+            </div>
+            <div class="formDiv">
+                <label for="incident">Incident</label>
+                <select name="update[incident]" id="incident">
+                    <option value="mild">Mild</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="severe">Severe</option>
+                    <option value="bathroom">Bathroom related</option>
+                    <option value="none">None</option>
+                </select>
+            </div>
+            <div class="formDiv">
+                <label for="ear">Ear tweaks</label>
+                <select name="update[ear]" id="ear">
+                    <option value="5">5 Minutes</option>
+                    <option value="10">10 Minutes</option>
+                    <option value="15">15 Minutes</option>
+                    <option value="20">20 Minutes</option>
+                </select>
+            </div>
+
+            <div class="formDiv">
+                <label for="activity">Dominant activity</label>
+                <select name="update[activity]" id="activity">
+                    <option value="tv">TV</option>
+                    <option value="bed">Bed/rest/sleeping</option>
+                    <option value="inside">Inside and playful</option>
+                    <option value="outsidePlayful">Outside and playful</option>
+                    <option value="outsideReserved">Outside and reserved</option>
+                    <option value="outHouse">Out the house activity</option>
+                    <option value="meal">Meal</option>
+
+                </select>
+            </div class="formDiv">
+            <input type="hidden" name="update[time]" value="<%= new Date() %>">
+            <input type="hidden" name="update[hour]" value="11">
+            <div id="submitDiv" class="selectDiv">
+                <input id="submit" type="submit" value="submit">
+            </div>
+        </fieldset>
+    </form>

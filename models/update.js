@@ -9,7 +9,7 @@ const UpdateSchema = new Schema({
     ear: Number,
     activity: String,
     time: Date,
-    hour: String
+    hour: Number
 
 });
 

@@ -1,0 +1,134 @@
+body {
+    background-color: #5cdb95;
+}
+
+#container {
+    flex: 1;
+    color: #05396b;
+    font-family: monaco, monospace;
+    text-align: center;
+}
+
+#scoreDescription {
+    display: flex;
+    border-left: none;
+    border-right: none;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: #43a36e;
+
+}
+
+#wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.time {
+    padding: 10px;
+    margin: 10px;
+    font-size: x-large;
+    background-color: #05396b;
+    border-radius: 12px;
+    border: none;
+    color: #5cdb95;
+
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: monaco, monospace;
+
+}
+
+#title {
+    color: white;
+
+}
+
+#description {
+    color: white;
+}
+
+#overnight {
+    display: flex;
+    border-bottom-style: solid;
+    border-color: #43a36e;
+    align-items: baseline;
+}
+
+select {
+    background-color: #5cdb95;
+    border: none;
+    font-size: large;
+    font-family: monaco, monospace;
+}
+
+#submitDiv {
+    background-color: #05396b;
+}
+
+#submit {
+    background-color: #5cdb95;
+    align-self: center;
+    font-family: monaco, monospace;
+    padding: 10px;
+    font-size: large;
+    border: none;
+    border-radius: 10px;
+}
+
+.button {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: #05396b;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: #5cdb95;
+    font-weight: bold;
+    line-height: 25px;
+    margin: 10px;
+}
+
+#field {
+    outline: none;
+    border: none;
+}
+
+.formTitle {
+    color: rgb(1, 1, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#form {
+    display: flex;
+    justify-content: center;
+}
+
+.formDiv {
+    padding: 10px;
+}
+
+#submitDiv {
+    display: flex;
+    justify-content: center;
+    background-color: #5cdb95;
+}
+
+label {
+    color: rgb(255, 255, 255);
+    font-size: x-large;
+}
+
+#submit {
+    font-size: xx-large;
+}

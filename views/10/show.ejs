@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate') %>
+    <h1 class="formTitle">Completed 10am submission</h1>
+    <h2>
+        <div id="container">
+            <div>
+                Person: <%= update.person %>
+            </div>
+            <div>
+                Mood score: <%= update.mood %>
+            </div>
+            <div>
+                Snack: <%= update.snack %>
+            </div>
+            <div>
+                Incident: <%= update.incident %>
+            </div>
+            <div>
+                Ear tweak time completed: <%= update.ear %>
+            </div>
+            <div>
+                Dominant activity: <%= update.activity %>
+            </div>
+        </div>
+
+
+    </h2>
+    <a href="/10/new">reload it</a>
+    <div>
+        <a href="/10/<%=update._id%>/edit">edit</a>
+    </div>
+    <div>
+        <form action="/10/<%=update._id%>/?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
+    </div>
+    <div>
+        <a href="/">Home</a>
+    </div>
