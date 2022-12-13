@@ -1,6 +1,8 @@
 <% layout('layouts/boilerplate') %>
-    <h1 class="formTitle">9am form</h1>
-    <form action="/9" method="POST" id="form" class="needs-validation" novalidate>
+    <h1 class="formTitle">
+        <%-update.hour%>am form
+    </h1>
+    <form action="/note/<%=update._id%>?_method=PUT" method="POST" id="form" class="needs-validation" novalidate>
         <fieldset id="field">
 
 
@@ -82,32 +84,9 @@
 
                 </select>
             </div class="formDiv">
-            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
-            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
-            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <input type="hidden" name="update[hour]" value="9">
+
             <div id="submitDiv" class="selectDiv">
                 <input id="submit" type="submit" value="submit">
             </div>
         </fieldset>
     </form>
-
-    <script>// Example starter JavaScript for disabling form submissions if there are invalid fields
-        (() => {
-            'use strict'
-
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            const forms = document.querySelectorAll('.needs-validation')
-
-            // Loop over them and prevent submission
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
-        })()</script>

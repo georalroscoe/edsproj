@@ -80,8 +80,20 @@
         </div>
     </div>
     <div id="wrapper">
-        <a class="button" href="/9/new">9:00</a>
-        <a class="button" href="/10/new">10:00</a>
+        <form method="post" action="/note">
+
+            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
+            <button name="update[hour]" value="9">9</button>
+        </form>
+        <form method="post" action="/note">
+
+            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
+            <button name="update[hour]" value="10">10</button>
+        </form>
         <a class="button" href="/11/new">11:00</a>
         <a class="button" href="/12/new">12:00</a>
     </div>

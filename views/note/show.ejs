@@ -1,5 +1,5 @@
 <% layout('layouts/boilerplate') %>
-    <h1 class="formTitle">Completed 9am submission</h1>
+    <h1 class="formTitle">Completed <%-update.hour%>am submission</h1>
     <h2>
         <div id="container">
             <div>
@@ -26,12 +26,12 @@
     </h2>
 
 
-    <a href="/9/new">reload it</a>
+    <a href="/note/new">reload it</a>
     <div>
-        <a href="/9/<%=update._id%>/edit">edit</a>
+        <a href="/note/<%=update._id%>/edit">edit</a>
     </div>
     <div>
-        <form action="/9/<%=update._id%>/?_method=DELETE" method="POST">
+        <form action="/note/<%=update._id%>/?_method=DELETE" method="POST">
             <button>Delete</button>
         </form>
     </div>
