@@ -75,7 +75,9 @@
 
                 </select>
             </div class="formDiv">
-            <input type="hidden" name="update[time]" value="<%= new Date() %>">
+            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
             <input type="hidden" name="update[hour]" value="9">
             <div id="submitDiv" class="selectDiv">
                 <input id="submit" type="submit" value="submit">

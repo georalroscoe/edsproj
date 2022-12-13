@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { stringify } = require('nodemon/lib/utils');
 const Schema = mongoose.Schema;
 
 const UpdateSchema = new Schema({
@@ -8,7 +9,11 @@ const UpdateSchema = new Schema({
     incident: String,
     ear: Number,
     activity: String,
-    time: Date,
+    time: {
+        year: Number,
+        month: Number,
+        day: Number
+    },
     hour: Number
 
 });

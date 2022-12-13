@@ -3,11 +3,12 @@ const Update = require('../models/update');
 const router = express.Router();
 const mongoose = require('mongoose')
 const db = mongoose.connection;
+const Night = require('../models/night');
 
-
+let mush = 'gfgfg'
 
 router.get('/9/new', async (req, res) => {
-    console.log(req.body);
+    console.log('mush')
     let q = {};
     await db.collection('updates').findOne({ hour: 9 }).then(function (result) {
         q = result;
@@ -29,7 +30,7 @@ router.get('/9/new', async (req, res) => {
 router.get('/9/show', (req, res) => {
 
     res.render('9/show')
-}); 9
+});
 
 router.post('/9', async (req, res) => {
     const update = new Update(req.body.update);
@@ -57,6 +58,13 @@ router.put('/9/:id', async (req, res) => {
 router.delete('/9/:id', async (req, res) => {
     const { id } = req.params;
     await Update.findByIdAndDelete(id);
+    res.redirect('/')
+});
+
+
+router.post('/night', async (req, res) => {
+    const night = new Night(req.body.night);
+    await night.save();
     res.redirect('/')
 });
 

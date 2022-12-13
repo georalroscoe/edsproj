@@ -39,19 +39,19 @@
     <div id="wakeUp">
         <div id="overnight">
             <div id="container">
-                <form id="wakeUpTime" method="post" action="/form.php">
+                <form id="night" method="POST" action="/night">
 
                     <fieldset>
                         <p>What time did Ed wake up?</p>
-                        <input type="radio" id="9" name="wake" value="9:00">
+                        <input type="radio" id="9" name="night[wake]" value="900">
                         <label for="9">9:00</label>
-                        <input type="radio" id="9:30" name="wake" value="9:30">
+                        <input type="radio" id="9:30" name="night[wake]" value="930">
                         <label for="9:30">9:30</label>
-                        <input type="radio" id="10" name="wake" value="10:00">
+                        <input type="radio" id="10" name="night[wake]" value="1000">
                         <label for="10:00">10:00</label>
-                        <input type="radio" id="10:30" name="wake" value="10:30">
+                        <input type="radio" id="10:30" name="night[wake]" value="1030">
                         <label for="10:30">10:30</label>
-                        <input type="radio" id="11" name="wake" value="11:00">
+                        <input type="radio" id="11" name="night[wake]" value="1100">
                         <label for="11">11:00</label>
             </div>
 
@@ -59,16 +59,22 @@
 
                 <p>Where there any night events?</p>
 
-                <input type="radio" id="yes" name="night" value="yes">
+                <input type="radio" id="yes" name="night[nightEvents]" value="yes">
                 <label for="yes">Yes</label>
-                <input type="radio" id="no" name="night" value="no">
+                <input type="radio" id="no" name="night[nightEvents]" value="no">
                 <label for="no">No</label>
-                </fieldset>
+                <input type="hidden" name="night[time][year]" value="<%= new Date().getUTCFullYear() %>">
+                <input type="hidden" name="night[time][month]" value="<%= new Date().getUTCMonth() %>">
+                <input type="hidden" name="night[time][day]" value="<%= new Date().getUTCDate() %>">
                 <input id="submit" type="submit" value="submit">
+                </fieldset>
                 </form>
             </div>
             <div id="container">
                 <p>Ear tweak time completed today</p>
+                <p>
+                    <%-ear%>
+                </p>
 
             </div>
         </div>

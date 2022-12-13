@@ -1,23 +1,26 @@
 <% layout('layouts/boilerplate') %>
     <h1 class="formTitle">9am form</h1>
-    <form action="/9" method="POST" id="form">
+    <form action="/9" method="POST" id="form" class="needs-validation" novalidate>
         <fieldset id="field">
 
 
             <div class="formDiv">
                 <label for="person">Person</label>
-                <select name="update[person]" id="person">
-                    `<option value="Leighen">Leighen</option>
+                <select name="update[person]" id="person" required>
+                    <option value="">Open this select menu</option>
+                    <option value="Leighen">Leighen</option>
                     <option value="George">George</option>
                     <option value="Hannah">Hannah</option>
                     <option value="Ewelina">Ewelina</option>
                     <option value="Miriam">Miriam</option>
                 </select>
+                <div class="invalid-feedback">Invalid mother fucker</div>
 
             </div>
             <div class="formDiv">
                 <label for="mood">Mood</label>
-                <select name="update[mood]" id="mood">
+                <select name="update[mood]" id="mood" required>
+                    <option value="">Open this select menu</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -35,7 +38,8 @@
             <div class="formDiv">
                 </select>
                 <label for="snack">Snack</label>
-                <select name="update[snack]" id="snack">
+                <select class="form-select" name="update[snack]" id="snack" required>
+                    <option value="">Open this select menu</option>
                     <option value="healthy">Healthy(fruit, nuts)</option>
                     <option value="lowSugar">Low sugar(bagel, crisps)</option>
                     <option value="highSugar">High sugar(chocolate, biscuits)</option>
@@ -44,7 +48,8 @@
             </div>
             <div class="formDiv">
                 <label for="incident">Incident</label>
-                <select name="update[incident]" id="incident">
+                <select name="update[incident]" id="incident" required>
+                    <option value="">Open this select menu</option>
                     <option value="mild">Mild</option>
                     <option value="moderate">Moderate</option>
                     <option value="severe">Severe</option>
@@ -54,7 +59,8 @@
             </div>
             <div class="formDiv">
                 <label for="ear">Ear tweaks</label>
-                <select name="update[ear]" id="ear">
+                <select name="update[ear]" id="ear" required>
+                    <option value="">Open this select menu</option>
                     <option value="5">5 Minutes</option>
                     <option value="10">10 Minutes</option>
                     <option value="15">15 Minutes</option>
@@ -64,7 +70,8 @@
 
             <div class="formDiv">
                 <label for="activity">Dominant activity</label>
-                <select name="update[activity]" id="activity">
+                <select name="update[activity]" id="activity" required>
+                    <option value="">Open this select menu</option>
                     <option value="tv">TV</option>
                     <option value="bed">Bed/rest/sleeping</option>
                     <option value="inside">Inside and playful</option>
@@ -75,10 +82,32 @@
 
                 </select>
             </div class="formDiv">
-            <input type="hidden" name="update[time]" value="<%= new Date() %>">
+            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
             <input type="hidden" name="update[hour]" value="9">
             <div id="submitDiv" class="selectDiv">
                 <input id="submit" type="submit" value="submit">
             </div>
         </fieldset>
     </form>
+
+    <script>// Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()</script>
