@@ -7,7 +7,8 @@ const db = mongoose.connection;
 
 
 router.post('/night', async (req, res) => {
-    const night = new Night(req.body.night);
+    const night = new Night(req.body);
+    console.log('fff')
     await night.save();
     res.redirect('/')
 });

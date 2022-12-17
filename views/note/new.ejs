@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') %>
     <h1 class="formTitle">
-        <%-update.hour%>am form
+        <%-update.hour%>:00 form
     </h1>
     <form action="/note/<%=update._id%>?_method=PUT" method="POST" id="form" class="needs-validation" novalidate>
         <fieldset id="field">
@@ -39,12 +39,12 @@
 
             <div class="formDiv">
                 </select>
-                <label for="snack">Snack</label>
-                <select class="form-select" name="update[snack]" id="snack" required>
+                <label for="food">food</label>
+                <select class="form-select" name="update[food]" id="food" required>
                     <option value="">Open this select menu</option>
-                    <option value="healthy">Healthy(fruit, nuts)</option>
-                    <option value="lowSugar">Low sugar(bagel, crisps)</option>
-                    <option value="highSugar">High sugar(chocolate, biscuits)</option>
+                    <option value="gluten">Gluten</option>
+                    <option value="dairy">Dairy</option>
+                    <option value="highSugar">High sugar</option>
                     <option value="none">none</option>
                 </select>
             </div>
@@ -63,6 +63,7 @@
                 <label for="ear">Ear tweaks</label>
                 <select class="form-select" name="update[ear]" id="ear" required>
                     <option value="">Open this select menu</option>
+                    <option value="0">0 Minutes</option>
                     <option value="5">5 Minutes</option>
                     <option value="10">10 Minutes</option>
                     <option value="15">15 Minutes</option>
@@ -77,8 +78,7 @@
                     <option value="tv">TV</option>
                     <option value="bed">Bed/rest/sleeping</option>
                     <option value="inside">Inside and playful</option>
-                    <option value="outsidePlayful">Outside and playful</option>
-                    <option value="outsideReserved">Outside and reserved</option>
+                    <option value="outside">Outside</option>
                     <option value="outHouse">Out the house activity</option>
                     <option value="meal">Meal</option>
 

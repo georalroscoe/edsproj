@@ -39,45 +39,49 @@
     <div id="wakeUp">
         <div id="overnight">
             <div id="container">
-                <form id="night" method="POST" action="/night">
+                <form class="needs-validation" id="night" method="POST" action="/night" novalidate>
 
                     <fieldset>
                         <p>What time did Ed wake up?</p>
-                        <input type="radio" id="9" name="night[wake]" value="900">
+                        <input type="radio" id="9" name="night[wake]" value="900" required>
                         <label for="9">9:00</label>
-                        <input type="radio" id="9:30" name="night[wake]" value="930">
+                        <input type="radio" id="9:30" name="night[wake]" value="930" required>
                         <label for="9:30">9:30</label>
-                        <input type="radio" id="10" name="night[wake]" value="1000">
+                        <input type="radio" id="10" name="night[wake]" value="1000" required>
                         <label for="10:00">10:00</label>
-                        <input type="radio" id="10:30" name="night[wake]" value="1030">
+                        <input type="radio" id="10:30" name="night[wake]" value="1030" required>
                         <label for="10:30">10:30</label>
-                        <input type="radio" id="11" name="night[wake]" value="1100">
+                        <input type="radio" id="11" name="night[wake]" value="1100" required>
                         <label for="11">11:00</label>
+                        <div class="invalid-feedback">Select a time</div>
             </div>
 
-            <div id="container">
-
-                <p>Where there any night events?</p>
-
-                <input type="radio" id="yes" name="night[nightEvents]" value="yes">
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" name="night[nightEvents]" value="no">
-                <label for="no">No</label>
-                <input type="hidden" name="night[time][year]" value="<%= new Date().getUTCFullYear() %>">
-                <input type="hidden" name="night[time][month]" value="<%= new Date().getUTCMonth() %>">
-                <input type="hidden" name="night[time][day]" value="<%= new Date().getUTCDate() %>">
-                <input id="submit" type="submit" value="submit">
-                </fieldset>
-                </form>
-            </div>
-            <div id="container">
-                <p>Ear tweak time completed today</p>
-                <p>
-                    <%-ear%>
-                </p>
-
-            </div>
         </div>
+
+        <div id="container">
+
+            <p>Were there any night events?</p>
+
+            <input type="radio" id="yes" name="night[nightEvents]" value=true required>
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="night[nightEvents]" value=false required>
+            <label for="no">No</label>
+
+            <input type="hidden" name="night[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="night[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="night[time][day]" value="<%= new Date().getUTCDate() %>">
+            <input id="submit" type="submit" value="submit">
+            </fieldset>
+            </form>
+        </div>
+        <div id="container">
+            <p>Ear tweak time completed today</p>
+            <p>
+                <%-ear%>
+            </p>
+
+        </div>
+    </div>
     </div>
     <div id="wrapper">
         <form method="post" action="/note">
@@ -85,71 +89,104 @@
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button name="update[hour]" value="9">9</button>
+            <button class="button-25" role="button" name="update[hour]" value="9">09:00</button>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button name="update[hour]" value="10">10</button>
+            <button class="button-25" role="button" name="update[hour]" value="10">10:00</button>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button name="update[hour]" value="11">11</button>
+            <button class="button-25" role="button" name="update[hour]" value="11">11:00</button>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button name="update[hour]" value="12">12</button>
+            <button class="button-25" role="button" name="update[hour]" value="12">12:00</button>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button name="update[hour]" value="13">13</button>
+            <button class="button-25" role="button" name="update[hour]" value="13">13:00</button>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button name="update[hour]" value="14">14</button>
+            <button class="button-25" role="button" name="update[hour]" value="14">14:00</button>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button name="update[hour]" value="15">15</button>
+            <button class="button-25" role="button" name="update[hour]" value="15">15:00</button>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button name="update[hour]" value="16">16</button>
+            <button class="button-25" role="button" name="update[hour]" value="16">16:00</button>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button name="update[hour]" value="17">17</button>
+            <button class="button-25" role="button" name="update[hour]" value="17">17:00</button>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button name="update[hour]" value="18">18</button>
+            <button class="button-25" role="button" name="update[hour]" value="18">18:00</button>
+        </form>
+        <form method="post" action="/note">
+
+            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
+            <button class="button-25" role="button" name="update[hour]" value="19">19:00</button>
+        </form>
+        <form method="post" action="/note">
+
+            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
+            <button class="button-25" role="button" name="update[hour]" value="20">20:00</button>
+        </form>
+        <form method="post" action="/note">
+
+            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
+            <button class="button-25" role="button" name="update[hour]" value="21">21:00</button>
+        </form>
+        <form method="post" action="/note">
+
+            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
+            <button class="button-25" role="button" name="update[hour]" value="22">22:00</button>
         </form>
     </div>
 
+    </div>
+    <div id="container">
+        <form method="get" action="/analysis">
+            <button>Analysis</button>
+        </form>
     </div>

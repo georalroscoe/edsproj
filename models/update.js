@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const UpdateSchema = new Schema({
     person: String,
     mood: Number,
-    snack: String,
+    food: String,
     incident: String,
     ear: Number,
     activity: String,

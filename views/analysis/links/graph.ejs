@@ -1,0 +1,55 @@
+<% layout('layouts/boilerplate') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+    <div id="mydiv" data-test=<%=graph %>></div>
+    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+    <div>
+        <form action="/analysis" method="get">
+            <button>back</button>
+        </form>
+    </div>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        var xyValues = document.getElementById('mydiv').dataset.test.split(',')
+
+        const splitx = function (arr) {
+            let x = []
+            for (let i = 0; i < 60; i = i + 2) {
+                x.push(arr[i])
+
+            }
+            return x
+        };
+
+        const splity = function (arr) {
+            let y = []
+            for (let i = 1; i < 60; i = i + 2) {
+                y.push(arr[i])
+
+            }
+            return y
+        };
+
+
+
+        var xValues = splitx(xyValues)
+        var yValues = splity(xyValues)
+
+        console.log(yValues)
+
+
+
+
+        let chart = new Chart(myChart, {
+            type: 'line',
+            data: {
+                labels: xValues,
+                datasets: [{
+                    label: 'Average mood',
+                    data: yValues
+                }]
+            },
+            options: {},
+        })
+
+    </script>
