@@ -19,7 +19,7 @@ router.get('/note/:id', catchAsync(async (req, res) => {
 router.put('/note/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     const update = await Update.findByIdAndUpdate(id, { ...req.body.update });
-    res.redirect(`/note/${update._id}`)
+    res.redirect('/')
 }));
 
 
@@ -33,7 +33,6 @@ router.delete('/note/:id', catchAsync(async (req, res) => {
 
 router.post('/night', catchAsync(async (req, res) => {
     const night = new Night(req.body.night);
-    console.log(night)
     await night.save();
     res.redirect('/')
 }));

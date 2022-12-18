@@ -39,15 +39,32 @@ app.get('/', async (req, res) => {
     let month = new Date().getUTCMonth();
     let day = new Date().getUTCDate();
     let updates = []
+    let nights = []
+    let event = 1
+    let wake = 0
+    db.collection('updates').deleteMany({
+        person: { $exists: false }
+    });
     await db.collection('updates')
         .find({
             'time.year': { $eq: year }, 'time.month': { $eq: month }, 'time.day': { $eq: day }
         })
         .forEach(x => updates.push(x));
+    await db.collection('nights')
+        .find({
+            'time.year': { $eq: year }, 'time.month': { $eq: month }, 'time.day': { $eq: day }
+        })
+        .forEach(x => nights.push(x));
+    const hours = updates.map((x) => x.hour);
+    if (nights.length > 0) {
+        event = (nights[0].nightEvents)
+        wake = nights[0].wake
+    }
+
     const ear = sum(updates.map((x) => x.ear));
 
 
-    res.render('./index', { ear })
+    res.render('./index', { ear, hours, wake, event })
 });
 
 

@@ -1,87 +1,9 @@
 <% layout('layouts/boilerplate') %>
+
     <div class="header">
         <h1 id="title">Edward Mason</h1>
-        <p id="description">A project so that we can monitor Ed's progress and find a path which benefits him</p>
-
-    </div>
-    <div id="scoreDescription">
-        <div id="container">
-            <h1>Score description</h1>
-            <p>For the purpose of this project we are going to classify Ed's mood
-                as going into two main directions.<br><br>
-                Sometimes his mood will be elevated, however,
-                he will be misbehaving to try and get a reaction from you. In this scenario he may
-                be breaking things or doing a runner whilst laughing. This will be defined
-                by the positive scores in the mood question box.(Get some hints and tips from leighen for this mood)
-                <br><br>
-                At other times his mood may present in the opposite manner.
-                This more classically looks like a bad mood as he becomes reserved,
-                avoids interacting and potentially angry. Some clues as to when this
-                is happening is hiding under a blanket, violence and vocabulary such as 'Go away'
-                and repeating 'No'. (Get some hints and tips from leighen for this mood)
-            </p>
-        </div>
-        <div id="container">
-            <h1>Score examples</h1>
-            <p>-5 - get leighens advice <br>
-                -5 - get leighens advice <br>
-                -5 - get leighens advice <br>
-                -5 - get leighens advice <br>
-                -5 - get leighens advice <br>
-                -5 - get leighens advice <br>
-                -5 - get leighens advice <br>
-                -5 - get leighens advice <br>
-                -5 - get leighens advice <br>
-                -5 - get leighens advice <br>
-                -5 - get leighens advice <br></p>
-        </div>
-    </div>
-    <div id="wakeUp">
-        <div id="overnight">
-            <div id="container">
-                <form class="needs-validation" id="night" method="POST" action="/night" novalidate>
-
-                    <fieldset>
-                        <p>What time did Ed wake up?</p>
-                        <input type="radio" id="9" name="night[wake]" value="900" required>
-                        <label for="9">9:00</label>
-                        <input type="radio" id="9:30" name="night[wake]" value="930" required>
-                        <label for="9:30">9:30</label>
-                        <input type="radio" id="10" name="night[wake]" value="1000" required>
-                        <label for="10:00">10:00</label>
-                        <input type="radio" id="10:30" name="night[wake]" value="1030" required>
-                        <label for="10:30">10:30</label>
-                        <input type="radio" id="11" name="night[wake]" value="1100" required>
-                        <label for="11">11:00</label>
-                        <div class="invalid-feedback">Select a time</div>
-            </div>
-
-        </div>
-
-        <div id="container">
-
-            <p>Were there any night events?</p>
-
-            <input type="radio" id="yes" name="night[nightEvents]" value=true required>
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="night[nightEvents]" value=false required>
-            <label for="no">No</label>
-
-            <input type="hidden" name="night[time][year]" value="<%= new Date().getUTCFullYear() %>">
-            <input type="hidden" name="night[time][month]" value="<%= new Date().getUTCMonth() %>">
-            <input type="hidden" name="night[time][day]" value="<%= new Date().getUTCDate() %>">
-            <input id="submit" type="submit" value="submit">
-            </fieldset>
-            </form>
-        </div>
-        <div id="container">
-            <p>Ear tweak time completed today</p>
-            <p>
-                <%-ear%>
-            </p>
-
-        </div>
-    </div>
+        <p id="description">A project so that we can monitor Ed's progress and find a path which benefits him
+        </p>
     </div>
     <div id="wrapper">
         <form method="post" action="/note">
@@ -89,104 +11,292 @@
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="9">09:00</button>
+            <% if(!hours.includes(9)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="9">09:00</button>
+                <% } %>
+                    <%if(hours.includes(9)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="9">09:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="10">10:00</button>
+            <% if(!hours.includes(10)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="10">10:00</button>
+                <% } %>
+                    <%if(hours.includes(10)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="10">10:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="11">11:00</button>
+            <% if(!hours.includes(11)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="11">11:00</button>
+                <% } %>
+                    <%if(hours.includes(11)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="11">11:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="12">12:00</button>
+            <% if(!hours.includes(12)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="12">12:00</button>
+                <% } %>
+                    <%if(hours.includes(12)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="12">12:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="13">13:00</button>
+            <% if(!hours.includes(13)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="13">13:00</button>
+                <% } %>
+                    <%if(hours.includes(13)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="13">13:00</button>
+                        <% }%>
+        </form>
+
+        <form method="post" action="/note">
+
+            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
+            <% if(!hours.includes(14)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="14">14:00</button>
+                <% } %>
+                    <%if(hours.includes(14)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="14">14:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="14">14:00</button>
+
+            <% if(!hours.includes(15)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="15">15:00</button>
+                <% } %>
+                    <%if(hours.includes(15)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="15">15:00</button>
+                        <% }%>
+        </form>
+
+        <form method="post" action="/note">
+
+            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
+            <% if(!hours.includes(16)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="16">16:00</button>
+                <% } %>
+                    <%if(hours.includes(16)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="16">16:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="15">15:00</button>
+            <% if(!hours.includes(17)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="17">17:00</button>
+                <% } %>
+                    <%if(hours.includes(17)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="17">17:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="16">16:00</button>
+            <% if(!hours.includes(18)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="18">18:00</button>
+                <% } %>
+                    <%if(hours.includes(18)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="18">18:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="17">17:00</button>
+            <% if(!hours.includes(19)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="19">19:00</button>
+                <% } %>
+                    <%if(hours.includes(19)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="19">19:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="18">18:00</button>
+            <% if(!hours.includes(20)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="20">20:00</button>
+                <% } %>
+                    <%if(hours.includes(20)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="20">20:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="19">19:00</button>
+            <% if(!hours.includes(21)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="21">21:00</button>
+                <% } %>
+                    <%if(hours.includes(21)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="21">21:00</button>
+                        <% }%>
         </form>
         <form method="post" action="/note">
 
             <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="20">20:00</button>
-        </form>
-        <form method="post" action="/note">
-
-            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
-            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
-            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="21">21:00</button>
-        </form>
-        <form method="post" action="/note">
-
-            <input type="hidden" name="update[time][year]" value="<%= new Date().getUTCFullYear() %>">
-            <input type="hidden" name="update[time][month]" value="<%= new Date().getUTCMonth() %>">
-            <input type="hidden" name="update[time][day]" value="<%= new Date().getUTCDate() %>">
-            <button class="button-25" role="button" name="update[hour]" value="22">22:00</button>
+            <% if(!hours.includes(22)) {%>
+                <button class="button-25" role="button" name="update[hour]" value="22">22:00</button>
+                <% } %>
+                    <%if(hours.includes(22)){ %>
+                        <button id="green" class="button-23" role="button" name="update[hour]" value="22">22:00</button>
+                        <% }%>
         </form>
     </div>
 
+
+
+    <div id="scoreDescription">
+        <div id="container">
+
+            <p>Were there any night events?</p>
+
+            <form class="needs-validation" id="night" method="POST" action="/night" novalidate>
+                <% if(event===1) {%>
+                    <input type="radio" id="yes" name="night[nightEvents]" value=true required>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="night[nightEvents]" value=false required>
+                    <label for="no">No</label>
+                    <% } %>
+                        <% if(event && event!==1) {%>
+
+                            <h1 class="content">
+                                Yes
+                            </h1>
+
+                            <% } %>
+                                <% if(!event) {%>
+                                    <h1 class="content">
+                                        No
+                                    </h1>
+                                    <% } %>
+
+
+        </div>
+        <div id="container">
+
+
+            <p>What time did Ed wake up?</p>
+            <% if(wake==0) {%>
+                <input type="radio" id="9" name="night[wake]" value="900" required>
+                <label for="9">9:00</label>
+                <input type="radio" id="9:30" name="night[wake]" value="930" required>
+                <label for="9:30">9:30</label>
+                <input type="radio" id="10" name="night[wake]" value="1000" required>
+                <label for="10:00">10:00</label>
+                <input type="radio" id="10:30" name="night[wake]" value="1030" required>
+                <label for="10:30">10:30</label>
+                <input type="radio" id="11" name="night[wake]" value="1100" required>
+                <label for="11">11:00</label>
+                <% } %>
+                    <% if(wake>1) {%>
+                        <h1>
+                            <%=wake%>
+                        </h1>
+                        <% } %>
+
+
+        </div>
     </div>
-    <div id="container">
-        <form method="get" action="/analysis">
-            <button>Analysis</button>
-        </form>
-    </div>
+    <% if(wake==0) {%>
+        <div id="submit">
+            <input type="hidden" name="night[time][year]" value="<%= new Date().getUTCFullYear() %>">
+            <input type="hidden" name="night[time][month]" value="<%= new Date().getUTCMonth() %>">
+            <input type="hidden" name="night[time][day]" value="<%= new Date().getUTCDate() %>">
+            <input id="submit" type="submit" value="submit">
+        </div>
+        <% } %>
+            </form>
+
+            <div class="ear">
+                <div class="progress" style="height: 30px;">
+                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
+                        aria-label="Info striped example" style="width: <%=ear * 5%>%" aria-valuenow="<%=ear%>"
+                        aria-valuemin="0" aria-valuemax="20"></div>
+                </div>
+
+                <p>Ear tweak time completed today: <%-ear%> minutes</p>
+
+
+
+
+
+            </div>
+
+
+            <div id="scoreDescription">
+                <div id="container">
+                    <h1>Score description</h1>
+                    <p>For the purpose of this project we are going to classify Ed's mood
+                        as going into two main directions.<br><br>
+                        Sometimes his mood will be elevated, however,
+                        he will be misbehaving to try and get a reaction from you. In this scenario he may
+                        be breaking things or doing a runner whilst laughing. This will be defined
+                        by the positive scores in the mood question box.(Get some hints and tips from leighen for this
+                        mood)
+                        <br><br>
+                        At other times his mood may present in the opposite manner.
+                        This more classically looks like a bad mood as he becomes reserved,
+                        avoids interacting and potentially angry. Some clues as to when this
+                        is happening is hiding under a blanket, violence and vocabulary such as 'Go away'
+                        and repeating 'No'. (Get some hints and tips from leighen for this mood)
+                    </p>
+                </div>
+                <div id="container">
+                    <h1>Score examples</h1>
+                    <p>-5 - get leighens advice <br>
+                        -5 - get leighens advice <br>
+                        -5 - get leighens advice <br>
+                        -5 - get leighens advice <br>
+                        -5 - get leighens advice <br>
+                        -5 - get leighens advice <br>
+                        -5 - get leighens advice <br>
+                        -5 - get leighens advice <br>
+                        -5 - get leighens advice <br>
+                        -5 - get leighens advice <br>
+                        -5 - get leighens advice <br></p>
+                </div>
+            </div>
+
+
+            </div>
+            <div id="container">
+                <form method="get" action="/analysis">
+                    <button>Analysis</button>
+                </form>
+            </div>

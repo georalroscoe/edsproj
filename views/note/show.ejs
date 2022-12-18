@@ -110,14 +110,14 @@
     </h2>
 
 
-    <div>
-        <a href="/note/<%=update._id%>/edit">edit</a>
-    </div>
-    <div>
+
+    <div id="container">
         <form action="/note/<%=update._id%>/?_method=DELETE" method="POST">
-            <button>Delete</button>
+            <button class="nav">Delete</button>
         </form>
     </div>
-    <div>
-        <a href="/">Home</a>
+    <div id="container">
+        <form action="/" method="Get">
+            <button class="nav">Home</button>
+        </form>
     </div>

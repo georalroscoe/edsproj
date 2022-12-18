@@ -5,7 +5,7 @@
     <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
     <div>
         <form action="/analysis" method="get">
-            <button>back</button>
+            <button class="button-25">back</button>
         </form>
     </div>
     <script>
@@ -14,7 +14,7 @@
 
         const splitx = function (arr) {
             let x = []
-            for (let i = 0; i < 60; i = i + 2) {
+            for (let i = 0; i < arr.length; i = i + 2) {
                 x.push(arr[i])
 
             }
@@ -23,7 +23,7 @@
 
         const splity = function (arr) {
             let y = []
-            for (let i = 1; i < 60; i = i + 2) {
+            for (let i = 1; i < arr.length; i = i + 2) {
                 y.push(arr[i])
 
             }

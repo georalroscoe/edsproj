@@ -1,5 +1,6 @@
 body {
     background-color: #5cdb95;
+
 }
 
 #container {
@@ -9,12 +10,91 @@ body {
     text-align: center;
 }
 
+.ear {
+    flex: 1;
+    color: #05396b;
+    font-family: monaco, monospace;
+    text-align: center;
+}
+
+#submit {
+    flex: 1;
+    color: #05396b;
+    font-family: monaco, monospace;
+    text-align: center;
+    text-decoration: #05396b;
+
+}
+
+.nav {
+
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: din-round, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: .8px;
+    line-height: 10px;
+    margin: 10px;
+    outline: none;
+    overflow: visible;
+    padding: 7px 8px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 30%;
+
+}
+
+.nav:after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.nav:main,
+.nav:focus {
+    user-select: auto;
+}
+
+.nav:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+}
+
+.nav:disabled {
+    cursor: auto;
+}
+
+
 #scoreDescription {
     display: flex;
     border-left: none;
     border-right: none;
     border-top-style: solid;
-    border-bottom-style: solid;
+    border-bottom-style: none;
     border-color: #43a36e;
 
 }
@@ -43,6 +123,8 @@ body {
     align-items: center;
     flex-direction: column;
     font-family: monaco, monospace;
+    border-bottom-style: solid;
+    border-color: #43a36e;
 
 }
 
@@ -55,12 +137,15 @@ body {
     color: white;
 }
 
+/* 
 #overnight {
     display: flex;
+    flex-direction: column;
     border-bottom-style: solid;
     border-color: #43a36e;
-    align-items: baseline;
-}
+    align-items: center;
+    justify-content: center;
+} */
 
 select {
     background-color: #5cdb95;
@@ -133,7 +218,54 @@ label {
     font-size: xx-large;
 }
 
+.checked {
+    font-family: 'Times New Roman', Times, serif;
+}
 
+.button-23 {
+    background-color: #5cdb95;
+    background-image: linear-gradient(#5cdb95, #5cdb95);
+    border: 1px solid #5cdb95;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 100%;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: box-shadow .05s ease-in-out, opacity .05s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+}
+
+.button-23:hover {
+    box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset, rgba(0, 0, 0, 0.4) 0 1px 2px;
+    text-decoration: none;
+    transition-duration: .15s, .15s;
+}
+
+.button-23:active {
+    box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+
+.night1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.night2 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
 
 /* CSS */
 .button-25 {
