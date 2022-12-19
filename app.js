@@ -9,13 +9,15 @@ const nineroutes = require('./routes/9routes');
 
 const analysisRoutes = require('./routes/analysisRoutes');
 
-mongoose.connect('mongodb://127.0.0.1/ed');
+mongoose.connect("mongodb+srv://george:roscoe8oak@cluster0.nkgit9o.mongodb.net/?retryWrites=true&w=majority");
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
     console.log("Database connected");
 });
+
+
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');

@@ -36,20 +36,32 @@ let dayMean = function (arr) {
     let y = 0
     let score = 0
     let count = 0
+    console.log(arr)
     for (i = 1; i < arr.length; i++) {
 
         if (arr[i][0] === arr[i - 1][0]) {
-            y = arr[i][0]
-            score += arr[i][1]
+            y = arr[i - 1][0]
+            score += arr[i - 1][1]
             count++
+
 
         }
         else {
+            y = arr[i - 1][0]
+            score += arr[i - 1][1]
+            count++
+
             x.push([y, score / count])
             score = 0
             count = 0
 
         }
+    }
+    if (arr.length > 2) {
+        y = arr[arr.length - 1][0]
+        score += arr[arr.length - 1][1]
+        count++
+        x.push([y, score / count])
     }
     return x
 };
@@ -105,7 +117,7 @@ router.get('/analysis', async (req, res, next) => {
     const moodDayArr = (dayMean(updates.map((x) => [(x.time.month * 30 + x.time.day), x.mood]).sort(sortByDate)));
     const personInc = updates.map((x) => [x.person, x.incident]);
     const activityMood = updates.map((x) => [x.activity, x.mood]);
-    console.log(moodDayArr)
+
     res.render('analysis/show', { moodDayArr, personInc, activityMood })
 });
 
@@ -129,6 +141,7 @@ router.get('/links/:number', async (req, res) => {
         .find({ 'time.month': { $eq: Month } })
         .forEach(update => updates.push(update));
     const graph = (dayMean(updates.map((x) => [x.time.day, x.mood]).sort(sortByDate)));
+
     res.render('analysis/links/graph', { graph })
 
 })
