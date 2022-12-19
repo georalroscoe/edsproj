@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
+const uri = process.env.MONGODB_URI;
 
 const methodOverride = require('method-override');
 const nineroutes = require('./routes/9routes');
