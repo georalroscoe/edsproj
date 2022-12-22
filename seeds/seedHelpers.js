@@ -1,5 +1,5 @@
 module.exports.person = [
-    'Leighen',
+    'Leighan',
     'Hannah',
     'Evie',
     'George',

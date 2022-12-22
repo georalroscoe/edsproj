@@ -66,46 +66,8 @@ let dayMean = function (arr) {
     return x
 };
 
-let activityMean = function (arr) {
-    let bed = [];
-    let outside = [];
-    let outHouse = [];
-    let tv = [];
-    let chill = [];
-    let meal = [];
-    for (let a of arr) {
-        switch (a[0]) {
-            case 'bed':
-                console.log('bed');
-                break;
-            case 'outside':
-                console.log('outside');
-                break;
-            default:
-                break;
-        }
 
-    }
 
-};
-
-const splitx = function (arr) {
-    let x = []
-    for (let i = 0; i < 10; i++) {
-        x.push(arr[i][0])
-
-    }
-    return x
-};
-
-const splity = function (arr) {
-    let y = []
-    for (let i = 0; i < 10; i++) {
-        y.push(arr[i][1])
-
-    }
-    return y
-};
 
 
 
@@ -117,25 +79,23 @@ router.get('/analysis', async (req, res, next) => {
     const moodDayArr = (dayMean(updates.map((x) => [(x.time.month * 30 + x.time.day), x.mood]).sort(sortByDate)));
     const personInc = updates.map((x) => [x.person, x.incident]);
     const activityMood = updates.map((x) => [x.activity, x.mood]);
-
     res.render('analysis/show', { moodDayArr, personInc, activityMood })
 });
 
 
-router.get('/analysis/leighen', async (req, res) => {
-    let leighen = [];
+router.get('/analysis/leighan', async (req, res) => {
+    let leighan = [];
     await db.collection('updates')
-        .find({ 'person': 'Leighen' })
-        .forEach(x => leighen.push(x));
-    const mood = mean(leighen.map((x) => x.mood));
-    const incidents = incident(leighen.map((x) => x.incident));
-    const noInc = leighen.length;
-    res.render('analysis/leighen/show', { mood, incidents, noInc })
+        .find({ 'person': 'Leighan' })
+        .forEach(x => leighan.push(x));
+    const mood = mean(leighan.map((x) => x.mood));
+    const incidents = incident(leighan.map((x) => x.incident));
+    const noInc = leighan.length;
+    res.render('analysis/leighan/show', { mood, incidents, noInc })
 });
 
 router.get('/links/:number', async (req, res) => {
     let month = req.params.number;
-
     let Month = parseInt(month);
     let updates = [];
     await db.collection('updates')

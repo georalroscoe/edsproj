@@ -66,11 +66,11 @@ router.post('/note', catchAsync(async (req, res, next) => {
     }).then(function (result) {
         q = result;
         if (q == null) {
-            console.log('empty');
+
             next();
         }
         else {
-            console.log('full');
+
             return res.redirect(`/note/${q._id}`)
         }
 
@@ -89,7 +89,6 @@ router.post('/note', catchAsync(async (req, res) => {
 
 
 router.get('/note/:id/new', catchAsync(async (req, res) => {
-
     const update = await Update.findById(req.params.id);
     res.render('note/new', { update });
 }));
