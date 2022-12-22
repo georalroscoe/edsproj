@@ -74,7 +74,7 @@ app.get('/', async (req, res) => {
 app.use(nineroutes);
 app.use(analysisRoutes);
 
-app.listen(8080, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log('Listening on port 8080')
 });
 
