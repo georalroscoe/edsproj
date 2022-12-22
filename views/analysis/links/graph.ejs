@@ -1,55 +1,91 @@
 <% layout('layouts/boilerplate') %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-    </script>
-    <div id="mydiv" data-test=<%=graph %>></div>
-    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-    <div>
-        <form action="/analysis" method="get">
-            <button class="button-25">back</button>
-        </form>
-    </div>
-    <script>
-        const ctx = document.getElementById('myChart').getContext('2d');
-        var xyValues = document.getElementById('mydiv').dataset.test.split(',')
+    <!DOCTYPE html>
+    <html lang="en">
 
-        const splitx = function (arr) {
-            let x = []
-            for (let i = 0; i < arr.length; i = i + 2) {
-                x.push(arr[i])
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
 
-            }
-            return x
-        };
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+        </script>
+        <div id="mydiv" data-test=<%=graph %>></div>
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+        <div>
+            <form action="/analysis" method="get">
+                <button class="button-25">back</button>
+            </form>
+        </div>
+        <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            var xyValues = document.getElementById('mydiv').dataset.test.split(',')
 
-        const splity = function (arr) {
-            let y = []
-            for (let i = 1; i < arr.length; i = i + 2) {
-                y.push(arr[i])
+            const splitx = function (arr) {
+                let x = []
+                for (let i = 0; i < arr.length; i = i + 2) {
+                    x.push(arr[i])
 
-            }
-            return y
-        };
+                }
+                return x
+            };
+
+            const splity = function (arr) {
+                let y = []
+                for (let i = 1; i < arr.length; i = i + 2) {
+                    y.push(arr[i])
+
+                }
+                return y
+            };
 
 
 
-        var xValues = splitx(xyValues)
-        var yValues = splity(xyValues)
+            var xValues = splitx(xyValues)
+            var yValues = splity(xyValues)
 
-        console.log(yValues)
-
-
+            console.log(yValues)
 
 
-        let chart = new Chart(myChart, {
-            type: 'line',
-            data: {
-                labels: xValues,
-                datasets: [{
-                    label: 'Average mood',
-                    data: yValues
-                }]
-            },
-            options: {},
-        })
 
-    </script>
+
+            let chart = new Chart(myChart, {
+                type: 'line',
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        label: 'Average mood',
+                        data: yValues,
+                        borderColor: '#05396b',
+                        backgroundColor: '#1899D6',
+                        color: '#1899D6'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        position: "top",
+                        text: "Mean Mood by Day",
+                        fontSize: 18,
+                        fontColor: "#111"
+                    },
+                    legend: {
+                        display: true,
+                        position: "bottom",
+                        labels: {
+                            fontColor: "#333",
+                            fontSize: 16
+                        }
+                    }
+                }
+
+            });
+            Chart.defaults.borderColor = '#36A2EB';
+
+        </script>
+    </body>
+
+    </html>

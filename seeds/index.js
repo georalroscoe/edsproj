@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { person, mood, food, ear, activity, incident } = require('./seedHelpers');
 const Update = require('../models/update');
 
-mongoose.connect('mongodb://127.0.0.1/ed');
+mongoose.connect("mongodb+srv://george:roscoe8oak@cluster0.nkgit9o.mongodb.net/?retryWrites=true&w=majority");
 
 const db = mongoose.connection;
 

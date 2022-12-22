@@ -23,11 +23,26 @@ router.put('/note/:id', catchAsync(async (req, res) => {
 }));
 
 
-router.delete('/note/:id', catchAsync(async (req, res) => {
+router.post('/note/:id', catchAsync(async (req, res) => {
 
     const { id } = req.params;
     await Update.findByIdAndDelete(id);
     res.redirect('/')
+}));
+
+router.delete('/note/:id', catchAsync(async (req, res) => {
+    const { id } = req.params
+    await Update.findByIdAndDelete(id)
+    res.redirect('/')
+}));
+
+
+router.delete('/night/:id', catchAsync(async (req, res) => {
+    const { id } = req.params
+
+    await Night.findByIdAndDelete(id)
+    res.redirect('/')
+
 }));
 
 

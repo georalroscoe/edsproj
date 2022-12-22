@@ -45,9 +45,11 @@ app.get('/', async (req, res) => {
     let nights = []
     let event = 1
     let wake = 0
+    let id = 0
     db.collection('updates').deleteMany({
         person: { $exists: false }
     });
+
     await db.collection('updates')
         .find({
             'time.year': { $eq: year }, 'time.month': { $eq: month }, 'time.day': { $eq: day }
@@ -62,19 +64,21 @@ app.get('/', async (req, res) => {
     if (nights.length > 0) {
         event = (nights[0].nightEvents)
         wake = nights[0].wake
+        id = nights[0]._id
+
     }
 
     const ear = sum(updates.map((x) => x.ear));
 
 
-    res.render('./index', { ear, hours, wake, event })
+    res.render('./index', { ear, hours, wake, event, id })
 });
 
 
 app.use(nineroutes);
 app.use(analysisRoutes);
 
-app.listen(process.env.PORT || 8080, () => {
-    console.log('Listening on port 8080')
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Listening on port 3000')
 });
 

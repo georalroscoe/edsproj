@@ -223,6 +223,7 @@
                 <label for="10:30">10:30</label>
                 <input type="radio" id="11" name="night[wake]" value="1100" required>
                 <label for="11">11:00</label>
+
                 <% } %>
                     <% if(wake>1) {%>
                         <h1>
@@ -233,70 +234,82 @@
 
         </div>
     </div>
+
     <% if(wake==0) {%>
         <div id="submit">
             <input type="hidden" name="night[time][year]" value="<%= new Date().getUTCFullYear() %>">
             <input type="hidden" name="night[time][month]" value="<%= new Date().getUTCMonth() %>">
             <input type="hidden" name="night[time][day]" value="<%= new Date().getUTCDate() %>">
+
             <input id="submit" type="submit" value="submit">
         </div>
         <% } %>
+
+
             </form>
-
-            <div class="ear">
-                <div class="progress" style="height: 30px;">
-                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
-                        aria-label="Info striped example" style="width: <%=ear * 5%>%" aria-valuenow="<%=ear%>"
-                        aria-valuemin="0" aria-valuemax="20"></div>
-                </div>
-
-                <p>Ear tweak time completed today: <%-ear%> minutes</p>
-
-
-
-
-
-            </div>
-
-
-            <div id="scoreDescription">
+            <% if(wake>1) {%>
                 <div id="container">
-                    <h1>Score description</h1>
-                    <p>For the purpose of this project we are going to classify Ed's mood
-                        as going into two main directions.<br><br>
-                        Sometimes his mood will be elevated, however,
-                        he will be misbehaving to try and get a reaction from you. In this scenario he may
-                        be breaking things or doing a runner whilst laughing. This will be defined
-                        by the positive scores in the mood question box.(Get some hints and tips from leighen for this
-                        mood)
-                        <br><br>
-                        At other times his mood may present in the opposite manner.
-                        This more classically looks like a bad mood as he becomes reserved,
-                        avoids interacting and potentially angry. Some clues as to when this
-                        is happening is hiding under a blanket, violence and vocabulary such as 'Go away'
-                        and repeating 'No'. (Get some hints and tips from leighen for this mood)
-                    </p>
+                    <form action="/night/<%=id%>/?_method=DELETE" method="POST">
+                        <button class="nav">Delete</button>
+                    </form>
                 </div>
-                <div id="container">
-                    <h1>Score examples</h1>
-                    <p>-5 - get leighens advice <br>
-                        -5 - get leighens advice <br>
-                        -5 - get leighens advice <br>
-                        -5 - get leighens advice <br>
-                        -5 - get leighens advice <br>
-                        -5 - get leighens advice <br>
-                        -5 - get leighens advice <br>
-                        -5 - get leighens advice <br>
-                        -5 - get leighens advice <br>
-                        -5 - get leighens advice <br>
-                        -5 - get leighens advice <br></p>
-                </div>
-            </div>
+                <% } %>
+                    <div class="ear">
+                        <div class="progress" style="height: 30px;">
+                            <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
+                                aria-label="Info striped example" style="width: <%=ear * 5%>%" aria-valuenow="<%=ear%>"
+                                aria-valuemin="0" aria-valuemax="20"></div>
+                        </div>
+
+                        <p>Ear tweak time completed today: <%-ear%> minutes</p>
 
 
-            </div>
-            <div id="container">
-                <form method="get" action="/analysis">
-                    <button>Analysis</button>
-                </form>
-            </div>
+
+
+
+                    </div>
+
+
+
+                    <div id="scoreDescription">
+                        <div id="container">
+                            <h1>Score description</h1>
+                            <p>For the purpose of this project we are going to classify Ed's mood
+                                as going into two main directions.<br><br>
+                                Sometimes his mood will be elevated, however,
+                                he will be misbehaving to try and get a reaction from you. In this scenario he may
+                                be breaking things or doing a runner whilst laughing. This will be defined
+                                by the positive scores in the mood question box.(Get some hints and tips from leighen
+                                for this
+                                mood)
+                                <br><br>
+                                At other times his mood may present in the opposite manner.
+                                This more classically looks like a bad mood as he becomes reserved,
+                                avoids interacting and potentially angry. Some clues as to when this
+                                is happening is hiding under a blanket, violence and vocabulary such as 'Go away'
+                                and repeating 'No'. (Get some hints and tips from leighen for this mood)
+                            </p>
+                        </div>
+                        <div id="container">
+                            <h1>Score examples</h1>
+                            <p>-5 - get leighens advice <br>
+                                -5 - get leighens advice <br>
+                                -5 - get leighens advice <br>
+                                -5 - get leighens advice <br>
+                                -5 - get leighens advice <br>
+                                -5 - get leighens advice <br>
+                                -5 - get leighens advice <br>
+                                -5 - get leighens advice <br>
+                                -5 - get leighens advice <br>
+                                -5 - get leighens advice <br>
+                                -5 - get leighens advice <br></p>
+                        </div>
+                    </div>
+
+
+                    </div>
+                    <div id="container">
+                        <form method="get" action="/analysis">
+                            <button>Analysis</button>
+                        </form>
+                    </div>

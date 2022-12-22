@@ -36,7 +36,7 @@ let dayMean = function (arr) {
     let y = 0
     let score = 0
     let count = 0
-    console.log(arr)
+
     for (i = 1; i < arr.length; i++) {
 
         if (arr[i][0] === arr[i - 1][0]) {
@@ -135,6 +135,7 @@ router.get('/analysis/leighen', async (req, res) => {
 
 router.get('/links/:number', async (req, res) => {
     let month = req.params.number;
+
     let Month = parseInt(month);
     let updates = [];
     await db.collection('updates')
