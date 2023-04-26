@@ -10,7 +10,7 @@ const nineroutes = require('./routes/9routes');
 
 const analysisRoutes = require('./routes/analysisRoutes');
 
-mongoose.connect("mongodb+srv://george:roscoe8oak@cluster0.nkgit9o.mongodb.net/?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://george:********@cluster0.nkgit9o.mongodb.net/?retryWrites=true&w=majority");
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
